@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--/////////////////////////
+                           //
+Student: Paul James Kerr   //
+Matric no: S1828425        //
+                           //
+//////////////////////////-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout_new_portrait"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:id="@+id/searchFilter"
+        android:hint="Enter road name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/layout_new_portrait"
+        app:layout_constraintRight_toLeftOf="@+id/dateOutput"
+        app:layout_constraintHorizontal_weight="2" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:id="@+id/dateOutput"
+        android:textSize="14sp"
+        android:hint="Date: "
+        android:paddingTop="5sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/searchFilter"
+        app:layout_constraintRight_toLeftOf="@+id/datePicker"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <ImageView
+        android:id="@+id/datePicker"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_date_range_black_24dp"
+        app:layout_constraintLeft_toRightOf="@+id/searchFilter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clearAll" />
+
+
+    <ImageView
+        android:id="@+id/clearAll"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_cancel_black_24dp"
+        app:layout_constraintLeft_toRightOf="@+id/datePicker"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/map_container"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@id/layout_new_portrait"
+        app:layout_constraintRight_toLeftOf="@+id/layout_new_portrait"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintTop_toBottomOf="@id/searchFilter" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_navigation"
+        app:labelVisibilityMode="labeled" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
